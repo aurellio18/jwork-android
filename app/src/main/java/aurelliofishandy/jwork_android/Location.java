@@ -26,7 +26,6 @@ public class Location {
 
     public void setProvince(String province){
         this.province = province;
-
     }
 
     public void setCity(String city){
