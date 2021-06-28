@@ -161,7 +161,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
 
                         JSONObject invoice = jsonResponse.getJSONObject(jsonResponse.length()-1);
                         JSONObject j = invoice.getJSONArray("jobs").getJSONObject(0);
-                        JSONObject js = invoice.getJSONObject("jobseeker");
+                        JSONObject js = invoice.getJSONObject("jobSeeker");
 
                         invoiceID = invoice.getInt("id");
                         id.setText(String.valueOf(invoiceID));
@@ -187,8 +187,6 @@ public class SelesaiJobActivity extends AppCompatActivity {
                                 JSONObject bonus = invoice.getJSONObject("bonus");
                                 referralCode.setText(bonus.getString("referralCode"));
                             }
-                        }else{
-                            referralCode.setText("");
                         }
                         id.setVisibility(View.VISIBLE);
                         jobseeker.setVisibility(View.VISIBLE);
@@ -205,6 +203,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 } catch(JSONException e){
+                    System.err.println(e);
                     e.printStackTrace();
                 }
             }
