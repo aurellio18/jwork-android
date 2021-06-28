@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
 import com.android.volley.RequestQueue;
@@ -25,15 +27,37 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Recruiter> listRecruiter = new ArrayList<>();
     private ArrayList<Job> jobIdList = new ArrayList<>();
     private HashMap<Recruiter, ArrayList<Job>> childMapping = new HashMap<>();
-
-    Location l1 = new Location("Jakarta", "Jakarta", "assalamualaikum");
-    Recruiter r1 = new Recruiter(1,"Aurellio", "arelgans@gmail.com", "081234567522", l1);
+    private int jobseekerID;
+    ExpandableListAdapter listAdapter;
+    ExpandableListView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Variabel jobseeker akan diisi dengan intent dari loginactivity
+        jobseekerID = getIntent().getExtras().getInt("jobseekerID");
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        view = (ExpandableListView) findViewById(R.id.lvExp);
         refreshList();
+
+        //Memeriksa jika salah satu pekerjaan dipilih
+        view.setOnChildClickListener(new ExpandableListView.OnChildClickListener(){
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Job selectedJob = childMapping.get(listRecruiter.get(groupPosition)).get(childPosition);
+                Intent intent = new Intent(MainActivity.this, ApplyJobActivity.class);
+                intent.putExtra("jobseekerID", jobseekerID);
+                intent.putExtra("jobID", selectedJob.getId());
+                intent.putExtra("jobName", selectedJob.getName());
+                intent.putExtra("jobCategory", selectedJob.getCategory());
+                intent.putExtra("jobFee", selectedJob.getFee());
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     protected void refreshList() {
@@ -88,9 +112,7 @@ public class MainActivity extends AppCompatActivity
                     for (Recruiter rctr : listRecruiter) {
                         ArrayList<Job> tempRecr = new ArrayList<>();
                         for (Job jobs : jobIdList) {
-                            if (jobs.getRecruiter().getName().equals(rctr.getName()) ||
-                                    jobs.getRecruiter().getEmail().equals(rctr.getEmail()) ||
-                                    jobs.getRecruiter().getphoneNumber().equals(rctr.getphoneNumber()))
+                            if (jobs.getRecruiter().getId() == rctr.getId())
                             {
                                 tempRecr.add(jobs);
                             }
@@ -106,17 +128,12 @@ public class MainActivity extends AppCompatActivity
         MainListAdapter adapter = new MainListAdapter(this, listRecruiter, childMapping);
         ExpandableListView listView = (ExpandableListView) findViewById(R.id.lvExp);
         listView.setAdapter(adapter);
-        listView.setOnChildClickListener(this::onListViewClick);
-    }
-
-    public boolean onListViewClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-        Intent i = new Intent(MainActivity.this, ApplyJobActivity.class);
-        startActivity(i);
-        return false;
     }
 
     public void onAppliedJobButtonClick(View view) {
         Intent i = new Intent(MainActivity.this, SelesaiJobActivity.class);
+        i.putExtra("jobseekerID", jobseekerID);
         startActivity(i);
+
     }
 }
