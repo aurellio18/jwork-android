@@ -18,8 +18,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
+
+    /**
+     * Method yang dijalankan saat activity dipanggil
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Mendefine setiap button/textview pada xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         EditText etEmail = findViewById(R.id.etEmail);
@@ -27,12 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView tvregister = findViewById(R.id.tvRegister);
         
-
+        // Fungsi dari button login 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
+                // Respon yang dilakukan ketika button login dipilih
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -56,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // Fungsi dari textview register
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JobFetchRequest extends StringRequest {
-    //Variabel yang digunakan
+    //Variabel dan URL yang digunakan
     private static final String URLJobseeker = "http://10.0.2.2:8080/invoice/jobseeker/";
     private Map<String, String> params;
 

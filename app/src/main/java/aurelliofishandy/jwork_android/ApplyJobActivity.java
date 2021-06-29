@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ApplyJobActivity extends AppCompatActivity {
-    //Variabel yang digunakan
+    //Variabel yang digunakan pada class
     private int jobseekerID;
     private int jobID;
     private String jobName;
@@ -46,13 +46,14 @@ public class ApplyJobActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_apply_job);
 
-        //Variabel akan diisi dengan intent dari activity sebelumnya
+        //Variabel yang dijalankan pada class ini dimasukkan dari intent aktivitas sebelum-sebelumnya
         jobseekerID = getIntent().getExtras().getInt("jobseekerID");
         jobID = getIntent().getExtras().getInt("jobID");
         jobName = getIntent().getExtras().getString("jobName");
         jobCategory = getIntent().getExtras().getString("jobCategory");
         jobFee = getIntent().getExtras().getInt("jobFee");
 
+        // Mendefine setiap button/textview pada xml
         Button btnApply = findViewById(R.id.btnApply);
         Button hitung = findViewById(R.id.hitung);
         TextView textCode = findViewById(R.id.textCode);
@@ -63,6 +64,7 @@ public class ApplyJobActivity extends AppCompatActivity {
         TextView totalFee = findViewById(R.id.total_fee);
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
 
+        // membuat setiap tombol dihilangkan dan juga men set Text
         btnApply.setVisibility(View.GONE);
         textCode.setVisibility(View.GONE);
         referralCode.setVisibility(View.GONE);
@@ -71,7 +73,7 @@ public class ApplyJobActivity extends AppCompatActivity {
         tjobFee.setText(String.valueOf(jobFee));
         totalFee.setText("0");
 
-        //Memeriksa tombol yang digunakan
+        //Memeriksa tombol yang digunakan pada activity
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -86,6 +88,8 @@ public class ApplyJobActivity extends AppCompatActivity {
 
         /**
          * Melakukan proses perhitungan pada ewallet dan bank
+         * Ewallet mengecek referral code
+         * Bank mengecek admin fee
          */
         hitung.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,7 +164,9 @@ public class ApplyJobActivity extends AppCompatActivity {
                 selectedPayment = rbutton.getText().toString();
                 ApplyJobRequest ajr = null;
 
-                Response.Listener<String> responseListenerApply = new Response.Listener<String>() {
+    // Merespon apply job yang dilakukan 
+    // Pada fungsi ini terlihat apakah job berhasil atau gagal di apply
+    Response.Listener<String> responseListenerApply = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -177,6 +183,8 @@ public class ApplyJobActivity extends AppCompatActivity {
 
                 };
 
+                // Merespon apabila ewallet yang dipilih maka akan dimasukkan referral code pada constructor apply job request
+                // Apabila bank maka tidak ada referral code yang dimasukkan pada constructor apply job request
                 if(selectedPayment.equals("E-Wallet")){
                     ajr = new ApplyJobRequest(jobID+"", jobseekerID+"", referralCode.getText().toString(), responseListenerApply);
                 }

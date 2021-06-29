@@ -27,7 +27,7 @@ public class ApplyJobRequest extends StringRequest {
         params = new HashMap<>();
         params.put("jobIdList", jobIdList);
         params.put("jobseekerId", jobseekerId);
-        params.put("adminFee", "100");
+        params.put("adminFee", "1000");
     }
 
     /**
@@ -47,6 +47,7 @@ public class ApplyJobRequest extends StringRequest {
 
     
     /** 
+     * Mendapatkan parameter
      * @return Map<String, String>
      */
     @Override

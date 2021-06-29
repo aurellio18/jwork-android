@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BonusRequest extends StringRequest {
-    //Variabel yang digunakan
+    //Variabel dan URL yang digunakan
     private static final String URL = "http://10.0.2.2:8080/bonus/";
     private Map<String, String> params;
 
@@ -24,6 +24,7 @@ public class BonusRequest extends StringRequest {
 
     
     /** 
+     * Mengambil parameter yang digunakan
      * @return Map<String, String>
      * @throws AuthFailureError
      */

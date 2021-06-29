@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JobBatalRequest extends StringRequest {
-    //Variabel yang digunakan
+    //Variabel dan URL yang digunakan
     private static final String URLInvoice = "http://10.0.2.2:8080/invoice/InvoiceStatus/";
     private Map<String, String> params;
 
@@ -27,6 +27,7 @@ public class JobBatalRequest extends StringRequest {
 
     
     /** 
+     * Mendapatkan parameter
      * @return Map<String, String>
      * @throws AuthFailureError
      */

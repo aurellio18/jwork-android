@@ -2,11 +2,21 @@ package aurelliofishandy.jwork_android;
 
 public class Job {
 
+    //Variabel yang digunakan pada class
     private int id,fee;
     private String name;
     private Recruiter recruiter;
     private String category;
 
+
+     /**
+     * Konstruktur untuk class Job
+     * @param id
+     * @param name
+     * @param recruiter
+     * @param fee
+     * @param category
+     */
     public Job(int id,String name,Recruiter recruiter, int fee,
                String category)
     {
@@ -19,6 +29,7 @@ public class Job {
     }
     
     /** 
+     * Mendapatkan Id Job
      * @return int
      */
     public int getId()
@@ -28,6 +39,7 @@ public class Job {
 
     
     /** 
+     * Mendapatkan Name Job
      * @return String
      */
     public String getName(){
@@ -36,6 +48,7 @@ public class Job {
 
     
     /** 
+     * Mendapatkan Recruiter Job
      * @return Recruiter
      */
     public Recruiter getRecruiter(){
@@ -44,6 +57,7 @@ public class Job {
 
     
     /** 
+     * Mendapatkan fee Job
      * @return int
      */
     public int getFee(){
@@ -52,6 +66,7 @@ public class Job {
 
     
     /** 
+     * Mendapatkan Category Job
      * @return String
      */
     public String getCategory(){
@@ -60,6 +75,7 @@ public class Job {
 
     
     /** 
+     * Menentukan Id Job
      * @param id
      */
     public void setId(int id){
@@ -68,6 +84,7 @@ public class Job {
 
     
     /** 
+     * Menentukan nama Job
      * @param name
      */
     public void setName(String name){
@@ -76,6 +93,7 @@ public class Job {
 
     
     /** 
+     * Menentukan recruiter Job
      * @param recruiter
      */
     public void setRecruiter(Recruiter recruiter){
@@ -84,6 +102,7 @@ public class Job {
 
     
     /** 
+     * Menentukan fee Job
      * @param fee
      */
     public void setFee(int fee){
@@ -92,6 +111,7 @@ public class Job {
 
     
     /** 
+     * Menentukan category Job
      * @param category
      */
     public void setCategory(String category){

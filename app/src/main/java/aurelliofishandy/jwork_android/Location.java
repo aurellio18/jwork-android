@@ -1,10 +1,17 @@
 package aurelliofishandy.jwork_android;
 
 public class Location {
+    //Variabel yang digunakan
     private String province;
     private String description;
     private String city;
 
+     /**
+     * Konstruktur untuk class Location
+     * @param province
+     * @param city
+     * @param description
+     */
     public Location(String province, String city, String description)
     {
         this.province = province;
@@ -14,6 +21,7 @@ public class Location {
     }
     
     /** 
+     * Mendapatkan provinsi
      * @return String
      */
     public String getProvince(){
@@ -22,6 +30,7 @@ public class Location {
 
     
     /** 
+     * Mendapatkan kota
      * @return String
      */
     public String getCity(){
@@ -30,6 +39,7 @@ public class Location {
 
     
     /** 
+     * Mendapatkan deskripsi lokasi
      * @return String
      */
     public String getDescription(){
@@ -38,6 +48,7 @@ public class Location {
 
     
     /** 
+     * menentukan provinsi
      * @param province
      */
     public void setProvince(String province){
@@ -46,6 +57,7 @@ public class Location {
 
     
     /** 
+     * menentukan kota
      * @param city
      */
     public void setCity(String city){
@@ -54,6 +66,7 @@ public class Location {
 
     
     /** 
+     * menentukan deskripsi lokasi
      * @param description
      */
     public void setDescription(String description){
