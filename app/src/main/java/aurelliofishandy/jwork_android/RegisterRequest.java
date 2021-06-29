@@ -21,6 +21,11 @@ public class RegisterRequest extends StringRequest {
         params.put("password", password);
     }
 
+    
+    /** 
+     * @return Map<String, String>
+     * @throws AuthFailureError
+     */
     @Override
     protected Map<String, String> getParams() throws AuthFailureError{
         return params;

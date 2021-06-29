@@ -22,6 +22,11 @@ public class BonusRequest extends StringRequest {
         params = new HashMap<>();
     }
 
+    
+    /** 
+     * @return Map<String, String>
+     * @throws AuthFailureError
+     */
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return params;

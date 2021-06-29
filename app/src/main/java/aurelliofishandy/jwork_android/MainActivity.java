@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity
     ExpandableListAdapter listAdapter;
     ExpandableListView view;
 
+    
+    /** 
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Variabel jobseeker akan diisi dengan intent dari loginactivity
@@ -67,6 +71,10 @@ public class MainActivity extends AppCompatActivity
         queue.add(menuRequest);
     }
 
+    
+    /** 
+     * @param response
+     */
     private void onResponse(String response) {
         // proses json response
         try{
@@ -130,6 +138,10 @@ public class MainActivity extends AppCompatActivity
         listView.setAdapter(adapter);
     }
 
+    
+    /** 
+     * @param view
+     */
     public void onAppliedJobButtonClick(View view) {
         Intent i = new Intent(MainActivity.this, SelesaiJobActivity.class);
         i.putExtra("jobseekerID", jobseekerID);

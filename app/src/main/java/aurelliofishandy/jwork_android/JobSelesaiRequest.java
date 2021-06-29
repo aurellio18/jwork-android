@@ -24,6 +24,11 @@ public class JobSelesaiRequest extends StringRequest {
         params.put("invoiceStatus", "Finished");
     }
 
+    
+    /** 
+     * @return Map<String, String>
+     * @throws AuthFailureError
+     */
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return this.params;

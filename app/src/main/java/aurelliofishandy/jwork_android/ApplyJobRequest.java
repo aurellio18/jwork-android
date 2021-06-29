@@ -45,6 +45,10 @@ public class ApplyJobRequest extends StringRequest {
         params.put("referralCode", referralCode);
     }
 
+    
+    /** 
+     * @return Map<String, String>
+     */
     @Override
     public Map<String, String> getParams() {
         return params;

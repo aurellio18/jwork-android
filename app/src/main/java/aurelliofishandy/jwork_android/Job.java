@@ -17,43 +17,83 @@ public class Job {
         this.category = category;
 
     }
+    
+    /** 
+     * @return int
+     */
     public int getId()
     {
         return this.id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName(){
         return this.name;
     }
 
+    
+    /** 
+     * @return Recruiter
+     */
     public Recruiter getRecruiter(){
         return this.recruiter;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getFee(){
         return this.fee;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getCategory(){
         return this.category;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(int id){
         this.id = id;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name){
         this.name = name;
     }
 
+    
+    /** 
+     * @param recruiter
+     */
     public void setRecruiter(Recruiter recruiter){
         this.recruiter = recruiter;
     }
 
+    
+    /** 
+     * @param fee
+     */
     public void setFee(int fee){
         this.fee = fee;
     }
 
+    
+    /** 
+     * @param category
+     */
     public void setCategory(String category){
         this.category = category;
     }

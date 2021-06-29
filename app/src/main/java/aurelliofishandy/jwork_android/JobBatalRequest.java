@@ -25,6 +25,11 @@ public class JobBatalRequest extends StringRequest {
         params.put("invoiceStatus", "Cancelled");
     }
 
+    
+    /** 
+     * @return Map<String, String>
+     * @throws AuthFailureError
+     */
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return this.params;

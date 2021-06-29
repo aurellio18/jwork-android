@@ -20,6 +20,10 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity implements Response.ErrorListener {
 
+    
+    /** 
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +69,10 @@ public class RegisterActivity extends AppCompatActivity implements Response.Erro
         });
     }
 
+    
+    /** 
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
 
