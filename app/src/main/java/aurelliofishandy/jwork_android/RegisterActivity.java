@@ -17,7 +17,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class RegisterActivity extends AppCompatActivity implements Response.ErrorListener {
 
     

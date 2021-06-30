@@ -11,12 +11,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class MainListAdapter extends BaseExpandableListAdapter {
+    // Variabel yang dibutuhkan
     private Context _context;
     private List<Recruiter> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<Recruiter, ArrayList<Job>> _listDataChild;
+
 
     public MainListAdapter(Context context, List<Recruiter> listDataHeader,
                            HashMap<Recruiter, ArrayList<Job>> listChildData) {
@@ -26,7 +31,8 @@ public class MainListAdapter extends BaseExpandableListAdapter {
     }
 
     
-    /** 
+    /**
+     * Menagmbil data Child
      * @param groupPosition
      * @param childPosititon
      * @return Object
@@ -38,7 +44,8 @@ public class MainListAdapter extends BaseExpandableListAdapter {
     }
 
     
-    /** 
+    /**
+     * Mengambil ID Child
      * @param groupPosition
      * @param childPosition
      * @return long
@@ -49,7 +56,8 @@ public class MainListAdapter extends BaseExpandableListAdapter {
     }
 
     
-    /** 
+    /**
+     * Memperlihatkan Child yang kita miliki kedalam List Item
      * @param groupPosition
      * @param childPosition
      * @param isLastChild
@@ -118,7 +126,8 @@ public class MainListAdapter extends BaseExpandableListAdapter {
     }
 
     
-    /** 
+    /**
+     * Membuat Recruiter disimpan/ditaruh sebagai Header list
      * @param groupPosition
      * @param isExpanded
      * @param convertView

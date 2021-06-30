@@ -1,5 +1,8 @@
 package aurelliofishandy.jwork_android;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class Recruiter {
     //Variabel yang digunakan pada class
     private int id;

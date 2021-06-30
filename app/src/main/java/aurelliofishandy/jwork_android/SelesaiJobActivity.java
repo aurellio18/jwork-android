@@ -18,7 +18,10 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 
 public class SelesaiJobActivity extends AppCompatActivity {
     //Variabel yang digunakan
@@ -88,6 +91,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        // membuat json object yang isinya invoice berhasil diselesaikan
                         try {
                             JSONObject invoice = new JSONObject(response);
                             if (invoice.getString("invoiceStatus").equals("Finished")) {

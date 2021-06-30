@@ -16,7 +16,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class LoginActivity extends AppCompatActivity {
 
     /**
@@ -34,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView tvregister = findViewById(R.id.tvRegister);
         
-        // Fungsi dari button login 
+        // Fungsi listen dari button login
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

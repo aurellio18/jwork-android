@@ -10,11 +10,11 @@
         android:id="@+id/etName"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:layout_marginTop="250dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="194dp" />
 
@@ -22,11 +22,11 @@
         android:id="@+id/etEmailReg"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email"
-        android:layout_marginTop="325dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="325dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="272dp" />
 
@@ -34,11 +34,11 @@
         android:id="@+id/etPassReg"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        android:layout_marginTop="400dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="343dp" />
 
@@ -56,9 +56,9 @@
         android:id="@+id/tvlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="550dp"
         android:layout_marginLeft="180dp"
+        android:layout_marginTop="550dp"
+        android:text="Login"
         tools:layout_editor_absoluteX="188dp"
         tools:layout_editor_absoluteY="544dp" />
 

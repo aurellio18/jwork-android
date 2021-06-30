@@ -23,6 +23,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
+
 public class ApplyJobActivity extends AppCompatActivity {
     //Variabel yang digunakan pada class
     private int jobseekerID;

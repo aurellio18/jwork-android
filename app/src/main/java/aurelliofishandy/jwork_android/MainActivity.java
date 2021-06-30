@@ -20,7 +20,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class MainActivity extends AppCompatActivity
 {
 
@@ -32,7 +35,8 @@ public class MainActivity extends AppCompatActivity
     ExpandableListView view;
 
     
-    /** 
+    /**
+     * Method yang dijalankan saat activity dipanggil
      * @param savedInstanceState
      */
     @Override
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Job selectedJob = childMapping.get(listRecruiter.get(groupPosition)).get(childPosition);
+
+                // Pindah ke Apply Job Activity
                 Intent intent = new Intent(MainActivity.this, ApplyJobActivity.class);
                 intent.putExtra("jobseekerID", jobseekerID);
                 intent.putExtra("jobID", selectedJob.getId());
@@ -66,7 +72,7 @@ public class MainActivity extends AppCompatActivity
 
     protected void refreshList() {
         // buat request rest controller
-        // Meminta respon dari menu request untuk ambil job
+        // Meminta respon dari menu request untuk mengambil data job dan recruiter
         MenuRequest menuRequest = new MenuRequest(this::onResponse);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(menuRequest);
@@ -78,9 +84,10 @@ public class MainActivity extends AppCompatActivity
      */
     private void onResponse(String response) {
         // proses json response
-        // Memberikan data yang dimiliki job yang telah dipilih
+        // Memberikan data yang dimiliki Recruiter dan job yang ada pada JWork
         try{
             JSONArray jsonResponse = new JSONArray(response);
+            // Memasukkan data recruiter
             if(jsonResponse != null){
                 for (int i = 0; i < jsonResponse.length(); i++){
                     JSONObject job = jsonResponse.getJSONObject(i);
@@ -99,6 +106,8 @@ public class MainActivity extends AppCompatActivity
                     String rctrPhoneNumber = recruiter.getString("phoneNumber");
 
                     Recruiter r1 = new Recruiter(recruiterId, rctrName, rctrEmail, rctrPhoneNumber, l1);
+
+                    // Recruiter di ubah menjadi list
                     if (listRecruiter.size() > 0) {
                         boolean success = true;
                         for (Recruiter rec : listRecruiter)
@@ -110,7 +119,7 @@ public class MainActivity extends AppCompatActivity
                     } else {
                         listRecruiter.add(r1);
                     }
-
+                    // Memasukkan data Job
                     int jobId = job.getInt("id");
                     int jobPrice = job.getInt("fee");
                     String jobName = job.getString("name");
@@ -119,6 +128,7 @@ public class MainActivity extends AppCompatActivity
                     Job j1 = new Job(jobId, jobName, r1, jobPrice, jobCategory);
                     jobIdList.add(j1);
 
+                    // Mengubah job menjadi child list
                     for (Recruiter rctr : listRecruiter) {
                         ArrayList<Job> tempRecr = new ArrayList<>();
                         for (Job jobs : jobIdList) {
@@ -135,6 +145,7 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         };
         // buat adapter untuk tampilan layar
+        // buat keluarin job dari recruiter yang diklik
         MainListAdapter adapter = new MainListAdapter(this, listRecruiter, childMapping);
         ExpandableListView listView = (ExpandableListView) findViewById(R.id.lvExp);
         listView.setAdapter(adapter);

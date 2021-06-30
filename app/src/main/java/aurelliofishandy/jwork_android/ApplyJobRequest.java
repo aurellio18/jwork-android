@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class ApplyJobRequest extends StringRequest {
     //Variabel dan URL yang digunakan
     private static final String URLBank = "http://10.0.2.2:8080/invoice/createBankPayment";

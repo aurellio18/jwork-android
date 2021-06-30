@@ -7,7 +7,10 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * @author (Aurellio Fishandy)
+ * @version (Modul 2 - 29-Jun-2021)
+ */
 public class JobSelesaiRequest extends StringRequest {
     //Variabel dan URL yang digunakan
     private static final String URLInvoice = "http://10.0.2.2:8080/invoice/InvoiceStatus/";
