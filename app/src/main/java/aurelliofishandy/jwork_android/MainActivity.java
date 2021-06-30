@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Variabel jobseeker akan diisi dengan intent dari loginactivity
+        //Variabel jobseeker diisi dengan intent dari loginactivity
         jobseekerID = getIntent().getExtras().getInt("jobseekerID");
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity
 
     protected void refreshList() {
         // buat request rest controller
+        // Meminta respon dari menu request untuk ambil job
         MenuRequest menuRequest = new MenuRequest(this::onResponse);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(menuRequest);
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity
      */
     private void onResponse(String response) {
         // proses json response
+        // Memberikan data yang dimiliki job yang telah dipilih
         try{
             JSONArray jsonResponse = new JSONArray(response);
             if(jsonResponse != null){
@@ -140,6 +142,7 @@ public class MainActivity extends AppCompatActivity
 
     
     /** 
+     * Pindah aktivitas dari main ke selesaijob dengan button
      * @param view
      */
     public void onAppliedJobButtonClick(View view) {

@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };
+                // Memasukkan login kedalam database pada URL login request
                 LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);

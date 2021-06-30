@@ -32,6 +32,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Mendefine setiap button/textview pada xml
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
@@ -48,8 +49,10 @@ public class SelesaiJobActivity extends AppCompatActivity {
         Button finish = findViewById(R.id.btnFinish);
         Button cancel = findViewById(R.id.btnCancel);
 
+        // Mengambil ID dari intent Jobseeker
         jobseekerID = getIntent().getExtras().getInt("jobseekerID");
 
+        // Menghilangkan seluruh button/textview pada XML ketika job belum dipilih
         id.setVisibility(View.GONE);
         jobseeker.setVisibility(View.GONE);
         invoiceDate.setVisibility(View.GONE);
@@ -62,7 +65,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
         finish.setVisibility(View.GONE);
         cancel.setVisibility(View.GONE);
 
-
+        // Thread untuk mengambil data job dari database invoice
         ProgressDialog pDialog = ProgressDialog.show(SelesaiJobActivity.this, "Getting Invoice", "Please wait", true, false);
         pDialog.setIndeterminate(true);
         new Thread(new Runnable() {
@@ -78,7 +81,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
             }
         }).start();
 
-        //Akan mengubah status invoice menjadi finished
+        //Mengubah status invoice menjadi finished dari OnGoing ketika mengklik button finished
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,13 +103,14 @@ public class SelesaiJobActivity extends AppCompatActivity {
                         }
                     }
                 };
+                // Menyelesaikan job dengan menggunakan url job selesai request
                 JobSelesaiRequest jsr = new JobSelesaiRequest(String.valueOf(invoiceID), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SelesaiJobActivity.this);
                 queue.add(jsr);
             }
         });
 
-        //Akan mengubah status invoice menjadi cancelled
+        //mengubah invoice status menjadi cancelled dari OnGoing ketika mengklik button cancelled
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +119,6 @@ public class SelesaiJobActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject invoice = new JSONObject(response);
-                            //Akan memeriksa status invoice
                             if (invoice.getString("invoiceStatus").equals("Cancelled")) {
                                 Toast.makeText(SelesaiJobActivity.this, "Invoice berhasil di cancel", Toast.LENGTH_SHORT).show();
                                 SelesaiJobActivity.this.finish();
@@ -129,6 +132,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
                         }
                     }
                 };
+                // Membatalkan job dengan menggunakan url pada job batal request
                 JobBatalRequest jbr = new JobBatalRequest(String.valueOf(invoiceID), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SelesaiJobActivity.this);
                 queue.add(jbr);
@@ -137,7 +141,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
     }
 
     /**
-     * Akan menampilkan pekerjaan yang diapply
+     * Menampilkan informasi job pada invoice yang akan ditampilkan setelah di cek pada database invoice
      */
     protected void fetchJob(){
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -188,6 +192,7 @@ public class SelesaiJobActivity extends AppCompatActivity {
                                 referralCode.setText(bonus.getString("referralCode"));
                             }
                         }
+                        // Menampilkan seluruh textview/button 
                         id.setVisibility(View.VISIBLE);
                         jobseeker.setVisibility(View.VISIBLE);
                         invoiceDate.setVisibility(View.VISIBLE);

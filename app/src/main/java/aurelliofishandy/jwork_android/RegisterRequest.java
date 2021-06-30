@@ -8,10 +8,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
-
+    //Variabel dan URL yang digunakan
     private static final  String URL = "http://10.0.2.2:8080/jobseeker/register";
     private Map<String, String> params;
 
+    /**
+     * Merespon request dari register activity untuk mengakses register jobseeker
+     * @param listener
+     */
     public RegisterRequest(String name, String email, String password,
                            Response.Listener<String> listener, Response.ErrorListener errorListener){
         super (Method.POST, URL, listener, errorListener);
@@ -23,6 +27,7 @@ public class RegisterRequest extends StringRequest {
 
     
     /** 
+     * error handling
      * @return Map<String, String>
      * @throws AuthFailureError
      */

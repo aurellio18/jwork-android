@@ -19,8 +19,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuRequest extends StringRequest {
+    //Variabel dan URL yang digunakan
     private static final String URL = "http://10.0.2.2:8080/job";
 
+    /**
+     * Merespon request dari main activity untuk mengakses job
+     * @param listener
+     */
     public MenuRequest(Response.Listener<String> listener) {
         super(Method.GET, URL, listener, new Response.ErrorListener() {
             @Override

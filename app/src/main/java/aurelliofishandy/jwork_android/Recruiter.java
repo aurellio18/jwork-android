@@ -1,13 +1,21 @@
 package aurelliofishandy.jwork_android;
 
 public class Recruiter {
-
+    //Variabel yang digunakan pada class
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
 
+    /**
+     * Konstruktur untuk class Recruiter
+     * @param id
+     * @param name
+     * @param email
+     * @param phoneNumber
+     * @param location
+     */
     public Recruiter(int id, String name, String email, String phoneNumber,
                      Location location)
     {
@@ -20,6 +28,7 @@ public class Recruiter {
 
     
     /** 
+     * Mendapatkan Id Recruiter
      * @return int
      */
     public int getId(){
@@ -28,6 +37,7 @@ public class Recruiter {
 
     
     /** 
+     * Mendapatkan name Recruiter
      * @return String
      */
     public String getName(){
@@ -36,6 +46,7 @@ public class Recruiter {
 
     
     /** 
+     * Mendapatkan email Recruiter
      * @return String
      */
     public String getEmail(){
@@ -44,6 +55,7 @@ public class Recruiter {
 
     
     /** 
+     * Mendapatkan nomor telepon Recruiter
      * @return String
      */
     public String getphoneNumber(){
@@ -51,7 +63,8 @@ public class Recruiter {
     }
 
     
-    /** 
+    /**
+     * Mendapatkan Lokasi Recruiter 
      * @return Location
      */
     public Location getLocation(){
@@ -60,6 +73,7 @@ public class Recruiter {
 
     
     /** 
+     * Menentukan Id Recruiter
      * @param id
      */
     public void setId(int id){
@@ -69,6 +83,7 @@ public class Recruiter {
 
     
     /** 
+     * Menentukan nama Recruiter
      * @param name
      */
     public void setName(String name){
@@ -77,7 +92,8 @@ public class Recruiter {
     }
 
     
-    /** 
+    /**
+     * Menentukan email Recruiter 
      * @param email
      */
     public void setEmail(String email){
@@ -87,6 +103,7 @@ public class Recruiter {
 
     
     /** 
+     * Menentukan nomor telepon Recruiter
      * @param phoneNumber
      */
     public void setphoneNumber(String phoneNumber){
@@ -95,6 +112,7 @@ public class Recruiter {
 
     
     /** 
+     * Menentukan lokasi Recruiter
      * @param location
      */
     public void setLocation(Location location){
